@@ -1,0 +1,861 @@
+[
+  {
+    "id": "CF01",
+    "tema": "Conceptos Fundamentales",
+    "nivel": 1,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es un proceso en un sistema operativo?",
+    "clave": [
+      "programa en ejecución",
+      "código",
+      "datos",
+      "pila",
+      "estado",
+      "CPU",
+      "recursos",
+      "contexto"
+    ],
+    "explicacion": "Un proceso es un programa en ejecución que incluye código, datos, pila, estado de CPU y recursos asignados. No es solo el archivo ejecutable, sino su ejecución activa con memoria y recursos propios.",
+    "analogia": "La receta es el programa; cuando el cocinero comienza a prepararla, eso es el proceso."
+  },
+  {
+    "id": "CF02",
+    "tema": "Conceptos Fundamentales",
+    "nivel": 1,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es un hilo (thread)?",
+    "clave": [
+      "unidad de ejecución",
+      "proceso",
+      "espacio de memoria",
+      "contador de programa",
+      "pila",
+      "registros"
+    ],
+    "explicacion": "Un hilo es una unidad básica de ejecución dentro de un proceso que comparte el espacio de memoria del proceso pero tiene su propio contador de programa, pila y registros.",
+    "analogia": "Un ayudante del cocinero trabajando en el mismo platillo; todos comparten la misma cocina y los mismos ingredientes."
+  },
+  {
+    "id": "CF03",
+    "tema": "Conceptos Fundamentales",
+    "nivel": 2,
+    "tipo": "abierta",
+    "enunciado": "¿Cuál es la diferencia esencial entre proceso e hilo?",
+    "clave": [
+      "espacio de memoria independiente",
+      "recursos propios",
+      "compartir memoria",
+      "liviano"
+    ],
+    "explicacion": "El proceso tiene espacio de memoria independiente y recursos propios; los hilos comparten memoria dentro del mismo proceso y son más livianos."
+  },
+  {
+    "id": "CF04",
+    "tema": "Conceptos Fundamentales",
+    "nivel": 2,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es el PCB (Process Control Block)?",
+    "clave": [
+      "estructura de datos",
+      "estado",
+      "registros",
+      "PID",
+      "memoria",
+      "archivos abiertos",
+      "prioridad"
+    ],
+    "explicacion": "Es la estructura de datos del SO que almacena toda la información necesaria para administrar un proceso: estado, registros, PID, puntero a memoria, archivos abiertos, prioridad, etc.",
+    "analogia": "Es la ficha que el cocinero usa para recordar en qué punto quedó cada platillo."
+  },
+  {
+    "id": "CF05",
+    "tema": "Conceptos Fundamentales",
+    "nivel": 1,
+    "tipo": "mc",
+    "enunciado": "¿Qué estados puede tener un proceso?",
+    "opciones": {
+      "A": "Activo, Inactivo, Muerto",
+      "B": "Nuevo, Listo, Ejecutando, Bloqueado, Terminado",
+      "C": "Corriendo, Detenido, Finalizado",
+      "D": "Solo Ejecutando y Bloqueado"
+    },
+    "correcta": "B",
+    "explicacion": "Los cinco estados clásicos son: Nuevo, Listo, Ejecutando, Bloqueado/Esperando y Terminado."
+  },
+  {
+    "id": "CF06",
+    "tema": "Conceptos Fundamentales",
+    "nivel": 1,
+    "tipo": "abierta",
+    "enunciado": "¿Qué significa que un proceso esté 'bloqueado'?",
+    "clave": [
+      "no puede continuar",
+      "evento externo",
+      "E/S",
+      "señal",
+      "espera"
+    ],
+    "explicacion": "Significa que no puede continuar porque está esperando un evento externo como E/S o señal.",
+    "analogia": "El platillo está esperando que el horno termine de calentar."
+  },
+  {
+    "id": "PL01",
+    "tema": "Planificación de CPU",
+    "nivel": 1,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es la planificación de CPU?",
+    "clave": [
+      "mecanismo",
+      "SO",
+      "decide",
+      "proceso",
+      "CPU",
+      "tiempo"
+    ],
+    "explicacion": "Es el mecanismo mediante el cual el SO decide qué proceso se ejecuta en la CPU y por cuánto tiempo."
+  },
+  {
+    "id": "PL02",
+    "tema": "Planificación de CPU",
+    "nivel": 2,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es el cambio de contexto (context switch)?",
+    "clave": [
+      "guardar estado",
+      "restaurar",
+      "proceso",
+      "CPU",
+      "cambiar"
+    ],
+    "explicacion": "Es el proceso de guardar el estado de un proceso y restaurar el estado de otro para permitir que la CPU cambie entre ellos."
+  },
+  {
+    "id": "PL03",
+    "tema": "Planificación de CPU",
+    "nivel": 2,
+    "tipo": "abierta",
+    "enunciado": "¿Por qué el cambio de contexto tiene costo?",
+    "clave": [
+      "guardar",
+      "restaurar",
+      "registros",
+      "tablas de memoria",
+      "kernel",
+      "cachés"
+    ],
+    "explicacion": "Porque implica guardar y restaurar registros, cambiar tablas de memoria, actualizar estructuras del kernel y posiblemente invalidar cachés."
+  },
+  {
+    "id": "PL04",
+    "tema": "Planificación de CPU",
+    "nivel": 1,
+    "tipo": "mc",
+    "enunciado": "¿Qué es el algoritmo de planificación Round Robin?",
+    "opciones": {
+      "A": "El proceso con mayor prioridad ejecuta primero",
+      "B": "El primero en llegar es el primero en ejecutarse",
+      "C": "Cada proceso recibe un quantum fijo de CPU y luego rota al siguiente",
+      "D": "Ejecutar primero el trabajo más corto"
+    },
+    "correcta": "C",
+    "explicacion": "Round Robin asigna a cada proceso un quantum fijo de CPU. Cuando se agota, el proceso va al final de la cola y el siguiente toma la CPU.",
+    "analogia": "El cocinero atiende cada platillo durante 5 minutos y luego cambia al siguiente."
+  },
+  {
+    "id": "PL05",
+    "tema": "Planificación de CPU",
+    "nivel": 2,
+    "tipo": "mc",
+    "enunciado": "¿Qué problema tiene el algoritmo FCFS (First Come First Served)?",
+    "opciones": {
+      "A": "No considera prioridades",
+      "B": "Penaliza procesos cortos si hay uno largo primero",
+      "C": "Requiere conocer el tiempo de CPU de antemano",
+      "D": "Solo funciona en sistemas monoprocesador"
+    },
+    "correcta": "B",
+    "explicacion": "FCFS puede dejar procesos cortos esperando mucho tiempo si hay uno largo al frente de la cola — esto se conoce como el efecto convoy."
+  },
+  {
+    "id": "PL06",
+    "tema": "Planificación de CPU",
+    "nivel": 2,
+    "tipo": "mc",
+    "enunciado": "¿Por qué SJF (Shortest Job First) es óptimo en promedio?",
+    "opciones": {
+      "A": "Porque es el más rápido de implementar",
+      "B": "Porque minimiza el tiempo medio de retorno cuando todos llegan al mismo tiempo",
+      "C": "Porque no requiere cambios de contexto",
+      "D": "Porque funciona bien con procesos interactivos"
+    },
+    "correcta": "B",
+    "explicacion": "SJF es óptimo porque minimiza el tiempo medio de retorno cuando todos los procesos llegan al mismo tiempo. Su debilidad es que requiere conocer de antemano el tiempo de ejecución."
+  },
+  {
+    "id": "PL07",
+    "tema": "Planificación de CPU",
+    "nivel": 2,
+    "tipo": "mc",
+    "enunciado": "¿Qué es el quantum en Round Robin y qué ocurre si es muy pequeño?",
+    "opciones": {
+      "A": "Es el tiempo mínimo de un proceso; si es muy pequeño mejora la respuesta",
+      "B": "Es el intervalo máximo de CPU por proceso; si es muy pequeño genera muchas conmutaciones y baja eficiencia",
+      "C": "Es la prioridad del proceso; un quantum pequeño da más prioridad",
+      "D": "Es el tamaño de memoria; no afecta la planificación"
+    },
+    "correcta": "B",
+    "explicacion": "El quantum es el tiempo máximo de CPU por turno. Muy pequeño → demasiadas conmutaciones de contexto → baja eficiencia. Muy grande → mala respuesta interactiva."
+  },
+  {
+    "id": "PL08",
+    "tema": "Planificación de CPU",
+    "nivel": 3,
+    "tipo": "abierta",
+    "enunciado": "Explica la diferencia entre planificación apropiativa y no apropiativa. ¿Cuándo es preferible cada una?",
+    "clave": [
+      "interrumpir",
+      "proceso",
+      "CPU",
+      "bloqueo",
+      "terminar",
+      "tiempo real",
+      "interactivo"
+    ],
+    "explicacion": "Apropiativa: el SO puede interrumpir un proceso para ejecutar otro — mejor para sistemas interactivos y tiempo real. No apropiativa: el proceso mantiene la CPU hasta bloquearse o terminar — más simple, menor overhead de cambio de contexto."
+  },
+  {
+    "id": "PL09",
+    "tema": "Planificación de CPU",
+    "nivel": 3,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es el envejecimiento (aging) en planificación por prioridad y por qué es necesario?",
+    "clave": [
+      "inanición",
+      "prioridad",
+      "incrementar",
+      "tiempo",
+      "espera",
+      "starvation"
+    ],
+    "explicacion": "El envejecimiento incrementa gradualmente la prioridad de los procesos que llevan mucho tiempo esperando. Es necesario para evitar inanición (starvation): que procesos de baja prioridad nunca obtengan CPU."
+  },
+  {
+    "id": "MC01",
+    "tema": "Concurrencia y Sincronización",
+    "nivel": 1,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es multiprogramación?",
+    "clave": [
+      "múltiples procesos",
+      "memoria",
+      "CPU",
+      "E/S",
+      "maximizar"
+    ],
+    "explicacion": "Es la técnica de mantener múltiples procesos en memoria para maximizar uso de CPU mientras otros esperan E/S."
+  },
+  {
+    "id": "MC02",
+    "tema": "Concurrencia y Sincronización",
+    "nivel": 1,
+    "tipo": "mc",
+    "enunciado": "¿Cuál es la diferencia entre concurrencia y paralelismo?",
+    "opciones": {
+      "A": "Son exactamente lo mismo",
+      "B": "Concurrencia: varios procesos avanzan compartiendo CPU. Paralelismo: ejecución simultánea en múltiples núcleos",
+      "C": "El paralelismo es más lento que la concurrencia",
+      "D": "La concurrencia requiere múltiples CPUs"
+    },
+    "correcta": "B",
+    "explicacion": "Concurrencia: múltiples procesos progresan en el tiempo (pueden intercalarse en una CPU). Paralelismo: múltiples procesos se ejecutan físicamente al mismo tiempo en múltiples núcleos."
+  },
+  {
+    "id": "MC03",
+    "tema": "Concurrencia y Sincronización",
+    "nivel": 1,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es una condición de carrera (race condition)?",
+    "clave": [
+      "resultado",
+      "orden",
+      "ejecución",
+      "hilos",
+      "concurrentes",
+      "impredecible"
+    ],
+    "explicacion": "Es una situación donde el resultado depende del orden impredecible de ejecución de hilos concurrentes que acceden a datos compartidos."
+  },
+  {
+    "id": "MC04",
+    "tema": "Concurrencia y Sincronización",
+    "nivel": 2,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es una sección crítica y cuáles son las 4 condiciones para una solución correcta de exclusión mutua?",
+    "clave": [
+      "región crítica",
+      "exclusión mutua",
+      "simultáneamente",
+      "espera infinita",
+      "bloqueo",
+      "velocidad"
+    ],
+    "explicacion": "Sección crítica: código donde se accede a recursos compartidos. Las 4 condiciones: (1) No dos procesos simultáneos en región crítica, (2) sin suposiciones sobre velocidad/CPUs, (3) no bloquear procesos fuera de la región, (4) no espera infinita."
+  },
+  {
+    "id": "MC05",
+    "tema": "Concurrencia y Sincronización",
+    "nivel": 2,
+    "tipo": "mc",
+    "enunciado": "¿Qué es un semáforo y qué hacen las operaciones down y up?",
+    "opciones": {
+      "A": "Es una variable simple de lectura/escritura",
+      "B": "Variable entera con operaciones atómicas: down bloquea si es 0, up incrementa y despierta un proceso",
+      "C": "Es un timer del sistema operativo",
+      "D": "Es un mecanismo solo para procesos, no para hilos"
+    },
+    "correcta": "B",
+    "explicacion": "Semáforo: variable entera protegida por operaciones atómicas. Down: decrementa si >0, bloquea si es 0. Up: incrementa y despierta un proceso bloqueado si existe."
+  },
+  {
+    "id": "MC06",
+    "tema": "Concurrencia y Sincronización",
+    "nivel": 2,
+    "tipo": "mc",
+    "enunciado": "¿Cuál es la diferencia entre mutex y semáforo?",
+    "opciones": {
+      "A": "No hay diferencia, son sinónimos",
+      "B": "El mutex solo tiene 2 estados (bloqueado/desbloqueado); el semáforo puede contar múltiples recursos",
+      "C": "El semáforo es más lento que el mutex",
+      "D": "El mutex solo funciona en modo kernel"
+    },
+    "correcta": "B",
+    "explicacion": "Mutex: exclusión mutua binaria (bloqueado/desbloqueado), para proteger una sección crítica. Semáforo: puede contar múltiples recursos (semáforo contador) o funcionar como mutex (semáforo binario)."
+  },
+  {
+    "id": "MC07",
+    "tema": "Concurrencia y Sincronización",
+    "nivel": 3,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es un deadlock? Describe las 4 condiciones necesarias para que ocurra.",
+    "clave": [
+      "exclusión mutua",
+      "retención",
+      "espera",
+      "no apropiación",
+      "espera circular",
+      "deadlock",
+      "interbloqueo"
+    ],
+    "explicacion": "Deadlock: dos o más procesos esperan indefinidamente recursos retenidos mutuamente. Las 4 condiciones (Coffman): exclusión mutua, retención y espera, no apropiación, espera circular. Deben cumplirse TODAS simultáneamente.",
+    "analogia": "Dos ayudantes: uno tiene la sartén y espera la tapa, el otro tiene la tapa y espera la sartén; ninguno puede avanzar."
+  },
+  {
+    "id": "MC08",
+    "tema": "Concurrencia y Sincronización",
+    "nivel": 3,
+    "tipo": "abierta",
+    "enunciado": "Explica por qué deshabilitar interrupciones no es una solución válida para exclusión mutua en sistemas multiprocesador.",
+    "clave": [
+      "solo afecta",
+      "una CPU",
+      "multiprocesador",
+      "otro procesador",
+      "acceso",
+      "inválido"
+    ],
+    "explicacion": "Deshabilitar interrupciones solo afecta la CPU actual. En un sistema multiprocesador, otras CPUs pueden seguir ejecutando y acceder a la sección crítica simultáneamente, lo que no garantiza exclusión mutua."
+  },
+  {
+    "id": "CT01",
+    "tema": "Creación y Terminación",
+    "nivel": 1,
+    "tipo": "abierta",
+    "enunciado": "¿Qué hace la llamada fork() en UNIX?",
+    "clave": [
+      "hijo",
+      "copia",
+      "proceso padre",
+      "clone",
+      "PID"
+    ],
+    "explicacion": "fork() crea un proceso hijo que es una copia exacta del proceso padre. El hijo recibe un nuevo PID y retorna 0; el padre recibe el PID del hijo.",
+    "analogia": "El cocinero copia exactamente el estado actual de preparación para que otro ayudante continúe desde el mismo punto."
+  },
+  {
+    "id": "CT02",
+    "tema": "Creación y Terminación",
+    "nivel": 1,
+    "tipo": "mc",
+    "enunciado": "¿Qué hace exec() después de fork()?",
+    "opciones": {
+      "A": "Crea otro proceso hijo adicional",
+      "B": "Reemplaza la imagen del proceso actual por un nuevo programa",
+      "C": "Termina el proceso padre",
+      "D": "Duplica la memoria del proceso"
+    },
+    "correcta": "B",
+    "explicacion": "exec() reemplaza completamente la imagen del proceso actual (código, datos, pila) con un nuevo programa. Se usa típicamente después de fork() para que el hijo ejecute un programa diferente.",
+    "analogia": "Cambiar completamente la receta que se estaba preparando."
+  },
+  {
+    "id": "CT03",
+    "tema": "Creación y Terminación",
+    "nivel": 2,
+    "tipo": "mc",
+    "enunciado": "¿Qué ocurre si un proceso termina pero el padre no ejecuta wait()?",
+    "opciones": {
+      "A": "El proceso desaparece inmediatamente",
+      "B": "Se convierte en proceso zombie hasta que el padre recoja su estado",
+      "C": "El proceso se reinicia automáticamente",
+      "D": "El kernel libera todos sus recursos inmediatamente"
+    },
+    "correcta": "B",
+    "explicacion": "Un proceso zombie ha terminado su ejecución pero su entrada en la tabla de procesos permanece hasta que el padre recoja su estado de salida con wait(). Si el padre nunca llama a wait(), el zombie persiste."
+  },
+  {
+    "id": "CT04",
+    "tema": "Creación y Terminación",
+    "nivel": 2,
+    "tipo": "abierta",
+    "enunciado": "¿Cuáles son las cuatro causas de terminación de procesos?",
+    "clave": [
+      "salida normal",
+      "salida por error",
+      "error fatal",
+      "eliminación",
+      "kill"
+    ],
+    "explicacion": "(1) Salida normal (exit voluntario), (2) salida por error (exit con código de error), (3) error fatal (excepción no manejada como división por cero), (4) eliminación por otro proceso (kill en UNIX)."
+  },
+  {
+    "id": "CT05",
+    "tema": "Creación y Terminación",
+    "nivel": 3,
+    "tipo": "abierta",
+    "enunciado": "En un proceso multihilado que ejecuta fork(), el hijo podría heredar copias de todos los hilos del padre. ¿Por qué esto genera problemas?",
+    "clave": [
+      "inconsistente",
+      "múltiples hilos",
+      "mismo recurso",
+      "conflicto",
+      "espera",
+      "un solo hilo"
+    ],
+    "explicacion": "Duplicar todos los hilos puede generar situaciones inconsistentes: dos hilos esperando el mismo recurso externo, mutexes en estados inconsistentes, etc. En un proceso de un solo hilo no ocurre porque solo existe una secuencia de ejecución que se duplica."
+  },
+  {
+    "id": "GH01",
+    "tema": "Gestión de Hilos",
+    "nivel": 1,
+    "tipo": "mc",
+    "enunciado": "¿Qué ventaja tienen los hilos frente a los procesos?",
+    "opciones": {
+      "A": "Son más seguros porque tienen memoria independiente",
+      "B": "Son más livianos, menor costo de cambio de contexto y permiten paralelismo eficiente",
+      "C": "No pueden compartir datos entre ellos",
+      "D": "Solo funcionan en sistemas operativos modernos"
+    },
+    "correcta": "B",
+    "explicacion": "Los hilos son más livianos que los procesos: requieren menos memoria, el cambio de contexto es más rápido (no hay cambio de espacio de direcciones) y permiten paralelismo eficiente dentro del mismo proceso."
+  },
+  {
+    "id": "GH02",
+    "tema": "Gestión de Hilos",
+    "nivel": 1,
+    "tipo": "mc",
+    "enunciado": "¿Qué tiene cada hilo de manera independiente (que NO comparte con otros hilos)?",
+    "opciones": {
+      "A": "Espacio de direcciones y archivos abiertos",
+      "B": "Variables globales y heap",
+      "C": "Contador de programa, registros, pila y estado",
+      "D": "Código del programa y datos estáticos"
+    },
+    "correcta": "C",
+    "explicacion": "Cada hilo tiene su propio contador de programa (PC), registros, pila y estado de ejecución. Esto permite que cada hilo tenga su propia secuencia de instrucciones y llamadas a funciones independientes."
+  },
+  {
+    "id": "GH03",
+    "tema": "Gestión de Hilos",
+    "nivel": 2,
+    "tipo": "abierta",
+    "enunciado": "¿Cuál es el principal problema de los hilos en espacio de usuario ante una llamada al sistema bloqueante?",
+    "clave": [
+      "bloquea",
+      "todo el proceso",
+      "syscall",
+      "espacio usuario",
+      "kernel",
+      "hilo"
+    ],
+    "explicacion": "Una llamada al sistema bloqueante (como read() esperando E/S) bloquea todo el proceso porque el kernel no distingue entre hilos individuales del espacio de usuario — ve un solo proceso bloqueado."
+  },
+  {
+    "id": "GH04",
+    "tema": "Gestión de Hilos",
+    "nivel": 2,
+    "tipo": "mc",
+    "enunciado": "¿Cuál es la ventaja de los hilos a nivel kernel (KLT) frente a hilos en espacio de usuario (ULT)?",
+    "opciones": {
+      "A": "Son más rápidos en el cambio de contexto",
+      "B": "Si un hilo se bloquea, el kernel puede ejecutar otro hilo del mismo proceso",
+      "C": "No requieren sincronización entre hilos",
+      "D": "Son más fáciles de implementar"
+    },
+    "correcta": "B",
+    "explicacion": "KLT: el kernel conoce cada hilo individualmente, por lo que si uno se bloquea puede ejecutar otro del mismo proceso. ULT: el bloqueo de un hilo bloquea todo el proceso desde la perspectiva del kernel."
+  },
+  {
+    "id": "GH05",
+    "tema": "Gestión de Hilos",
+    "nivel": 3,
+    "tipo": "abierta",
+    "enunciado": "¿Por qué las variables globales generan problemas en programas multihilados? ¿Qué soluciones existen?",
+    "clave": [
+      "acceso concurrente",
+      "inconsistencias",
+      "mutex",
+      "sincronización",
+      "thread-local",
+      "atómico"
+    ],
+    "explicacion": "Varios hilos pueden modificar variables globales simultáneamente sin coordinación, generando inconsistencias. Soluciones: mutex/semáforos para serializar el acceso, variables thread-local (TLS) para dar a cada hilo su propia copia, operaciones atómicas para accesos simples."
+  },
+  {
+    "id": "IPC01",
+    "tema": "Comunicación entre Procesos (IPC)",
+    "nivel": 1,
+    "tipo": "abierta",
+    "enunciado": "¿Por qué los procesos necesitan comunicarse entre sí?",
+    "clave": [
+      "intercambiar datos",
+      "coordinar",
+      "consistencia",
+      "dependencia",
+      "tubería",
+      "productor-consumidor"
+    ],
+    "explicacion": "Para intercambiar datos, coordinar acciones y mantener consistencia cuando existe dependencia funcional entre ellos, como en tuberías del shell o productor-consumidor."
+  },
+  {
+    "id": "IPC02",
+    "tema": "Comunicación entre Procesos (IPC)",
+    "nivel": 2,
+    "tipo": "abierta",
+    "enunciado": "¿Cuáles son los tres problemas fundamentales de la comunicación entre procesos?",
+    "clave": [
+      "paso de información",
+      "interferencias",
+      "condiciones de carrera",
+      "secuencia",
+      "dependencias"
+    ],
+    "explicacion": "(1) Paso de información entre procesos, (2) evitar interferencias o condiciones de carrera, (3) garantizar la secuencia correcta cuando existen dependencias entre procesos."
+  },
+  {
+    "id": "IPC03",
+    "tema": "Comunicación entre Procesos (IPC)",
+    "nivel": 2,
+    "tipo": "mc",
+    "enunciado": "¿Qué es el problema del productor-consumidor?",
+    "opciones": {
+      "A": "Sincronizar el uso de la impresora",
+      "B": "Sincronizar acceso a un buffer compartido evitando desbordamiento y subdesbordamiento",
+      "C": "Gestionar múltiples productores de CPU",
+      "D": "Balancear la carga entre núcleos"
+    },
+    "correcta": "B",
+    "explicacion": "El productor-consumidor: el productor genera datos en un buffer compartido, el consumidor los extrae. Problema: el productor no debe insertar si el buffer está lleno; el consumidor no debe extraer si está vacío. Solución: semáforos o variables de condición."
+  },
+  {
+    "id": "IPC04",
+    "tema": "Comunicación entre Procesos (IPC)",
+    "nivel": 3,
+    "tipo": "abierta",
+    "enunciado": "Explica qué son las barreras de sincronización y en qué situaciones son útiles.",
+    "clave": [
+      "todos los procesos",
+      "punto",
+      "continuar",
+      "barrera",
+      "sincronización",
+      "paralelo"
+    ],
+    "explicacion": "Las barreras son un mecanismo donde todos los procesos deben llegar a un punto específico antes de que cualquiera pueda continuar. Son útiles en computación paralela cuando una fase debe completarse antes de iniciar la siguiente (ej: simulaciones científicas por pasos de tiempo)."
+  },
+  {
+    "id": "AM01",
+    "tema": "Administración de Memoria",
+    "nivel": 1,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es la administración de memoria en un SO y cuál es su objetivo principal?",
+    "clave": [
+      "gestionar",
+      "RAM",
+      "asignar",
+      "liberar",
+      "control",
+      "partes",
+      "uso"
+    ],
+    "explicacion": "Es la función del SO encargada de gestionar la memoria principal (RAM). Su objetivo: llevar control de qué partes están en uso, asignar memoria a procesos cuando la necesitan y liberarla cuando ya no se requiere."
+  },
+  {
+    "id": "AM02",
+    "tema": "Administración de Memoria",
+    "nivel": 1,
+    "tipo": "mc",
+    "enunciado": "¿Qué función cumplen los registros base y límite para proteger la memoria?",
+    "opciones": {
+      "A": "Aceleran el acceso a memoria caché",
+      "B": "El registro base define el inicio del proceso en memoria física; el límite define su tamaño; el hardware verifica que no se excedan",
+      "C": "Solo se usan en sistemas sin paginación",
+      "D": "Almacenan las páginas más usadas del proceso"
+    },
+    "correcta": "B",
+    "explicacion": "El registro base indica dónde comienza el proceso en memoria física y el límite indica su tamaño. El hardware suma automáticamente el base a cada dirección y verifica que no exceda el límite, evitando accesos a memoria de otros procesos."
+  },
+  {
+    "id": "AM03",
+    "tema": "Administración de Memoria",
+    "nivel": 2,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es el intercambio (swapping) y cuál es su propósito?",
+    "clave": [
+      "procesos",
+      "disco",
+      "memoria principal",
+      "liberar",
+      "espacio",
+      "inactivos"
+    ],
+    "explicacion": "Técnica donde procesos completos se trasladan temporalmente desde la RAM al disco cuando no están activos, liberando espacio para otros procesos. Permite que más procesos puedan ejecutarse aunque la memoria física sea limitada."
+  },
+  {
+    "id": "AM04",
+    "tema": "Administración de Memoria",
+    "nivel": 2,
+    "tipo": "mc",
+    "enunciado": "¿Cuáles son las dos formas principales de administrar la memoria libre?",
+    "opciones": {
+      "A": "Paginación y segmentación",
+      "B": "Mapas de bits y listas ligadas",
+      "C": "FIFO y LRU",
+      "D": "Registros base y límite"
+    },
+    "correcta": "B",
+    "explicacion": "Mapas de bits: un bit por unidad de memoria (libre/ocupada), simple pero lento para buscar huecos grandes. Listas ligadas: registran segmentos libres y ocupados con dirección y tamaño, más eficiente para asignación dinámica."
+  },
+  {
+    "id": "AM05",
+    "tema": "Administración de Memoria",
+    "nivel": 3,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es la compactación de memoria? ¿Por qué no se utiliza frecuentemente?",
+    "clave": [
+      "mover procesos",
+      "huecos libres",
+      "unir",
+      "tiempo de CPU",
+      "rendimiento",
+      "costoso"
+    ],
+    "explicacion": "La compactación mueve procesos en memoria para unir los huecos libres en uno solo más grande, eliminando la fragmentación externa. No se usa frecuentemente porque requiere mucho tiempo de CPU para reubicar todos los procesos y actualizar las referencias de memoria."
+  },
+  {
+    "id": "MV01",
+    "tema": "Memoria Virtual",
+    "nivel": 1,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es la memoria virtual y cuál es su idea fundamental?",
+    "clave": [
+      "ilusión",
+      "espacio de direcciones",
+      "completo",
+      "RAM",
+      "páginas",
+      "disco",
+      "cargar"
+    ],
+    "explicacion": "Técnica que permite que cada proceso tenga la ilusión de disponer de un espacio de direcciones completo, aunque físicamente no toda esa memoria esté en RAM. La idea fundamental: dividir la memoria en páginas y cargar en RAM solo las que se necesitan en cada momento."
+  },
+  {
+    "id": "MV02",
+    "tema": "Memoria Virtual",
+    "nivel": 1,
+    "tipo": "mc",
+    "enunciado": "¿Qué es un fallo de página (page fault) y qué sucede cuando ocurre?",
+    "opciones": {
+      "A": "Un error de programación que causa un crash",
+      "B": "El proceso accede a una página que no está en RAM; el SO la carga desde disco y actualiza la tabla de páginas",
+      "C": "La tabla de páginas se llena completamente",
+      "D": "El proceso supera su límite de memoria asignada"
+    },
+    "correcta": "B",
+    "explicacion": "Page fault: el proceso accede a una página no presente en RAM. El hardware genera una interrupción, el SO identifica la página, la carga desde disco a un marco libre, actualiza la tabla de páginas y reanuda el proceso."
+  },
+  {
+    "id": "MV03",
+    "tema": "Memoria Virtual",
+    "nivel": 2,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es el TLB (Translation Lookaside Buffer) y cuál es su función principal?",
+    "clave": [
+      "caché",
+      "traducciones",
+      "dirección virtual",
+      "física",
+      "acelerar",
+      "tabla de páginas",
+      "recientes"
+    ],
+    "explicacion": "El TLB es una memoria caché especial que almacena traducciones recientes de direcciones virtuales a físicas. Su función: acelerar la traducción evitando accesos frecuentes a la tabla de páginas en RAM. Un hit en TLB es mucho más rápido que consultar la tabla en memoria."
+  },
+  {
+    "id": "MV04",
+    "tema": "Memoria Virtual",
+    "nivel": 2,
+    "tipo": "mc",
+    "enunciado": "¿Cuál es la diferencia entre un fallo suave y un fallo duro en memoria virtual?",
+    "opciones": {
+      "A": "El fallo suave es más grave que el duro",
+      "B": "Fallo suave: página no en TLB pero sí en RAM (solo actualiza TLB). Fallo duro: página no en RAM, debe cargarse desde disco",
+      "C": "Son exactamente lo mismo",
+      "D": "El fallo duro solo ocurre en sistemas con segmentación"
+    },
+    "correcta": "B",
+    "explicacion": "Fallo suave (soft fault): la página está en RAM pero no en el TLB — solo se actualiza el TLB, muy rápido. Fallo duro (hard fault): la página está en disco — requiere E/S, cientos de veces más lento."
+  },
+  {
+    "id": "MV05",
+    "tema": "Memoria Virtual",
+    "nivel": 2,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es el conjunto de trabajo (working set) de un proceso?",
+    "clave": [
+      "páginas",
+      "usadas recientemente",
+      "seguirá usando",
+      "reducir fallos",
+      "rendimiento",
+      "localidad"
+    ],
+    "explicacion": "El conjunto de trabajo es el conjunto de páginas que un proceso ha utilizado recientemente y que probablemente seguirá usando en el futuro cercano. Mantenerlo en RAM reduce significativamente los fallos de página y mejora el rendimiento."
+  },
+  {
+    "id": "MV06",
+    "tema": "Memoria Virtual",
+    "nivel": 3,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es la sobrepaginación (thrashing) y cómo se controla?",
+    "clave": [
+      "working set",
+      "conjuntos de trabajo",
+      "capacidad",
+      "constantes fallos",
+      "multiprogramación",
+      "intercambiar",
+      "disco"
+    ],
+    "explicacion": "Thrashing: los conjuntos de trabajo combinados de los procesos exceden la capacidad de RAM, generando constantes fallos de página. El SO pasa más tiempo moviendo páginas que ejecutando procesos. Control: reducir el grado de multiprogramación, intercambiar procesos al disco.",
+    "analogia": "Un mesero con demasiadas mesas: va y viene sin llegar a servir bien ninguna."
+  },
+  {
+    "id": "MV07",
+    "tema": "Memoria Virtual",
+    "nivel": 3,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es el algoritmo WSClock y qué problema mejora respecto al conjunto de trabajo básico?",
+    "clave": [
+      "reloj",
+      "circular",
+      "conjunto de trabajo",
+      "eficiente",
+      "bit R",
+      "bit M",
+      "edad",
+      "explorar"
+    ],
+    "explicacion": "WSClock combina el mecanismo circular del algoritmo de reloj con la lógica del conjunto de trabajo. Evita explorar completamente la tabla de páginas en cada fallo usando una lista circular y considerando edad, bit R y bit M para decidir eficientemente qué página desalojar."
+  },
+  {
+    "id": "MV08",
+    "tema": "Memoria Virtual",
+    "nivel": 2,
+    "tipo": "mc",
+    "enunciado": "¿Qué es el algoritmo PFF (Page Fault Frequency) y qué controla?",
+    "opciones": {
+      "A": "Controla el tamaño máximo de la tabla de páginas",
+      "B": "Controla la cantidad de marcos por proceso basándose en su frecuencia de fallos: más fallos → más marcos",
+      "C": "Determina el orden de reemplazo de páginas",
+      "D": "Solo se usa en sistemas con segmentación"
+    },
+    "correcta": "B",
+    "explicacion": "PFF monitorea la frecuencia de fallos de página de cada proceso. Alta frecuencia → asigna más marcos. Baja frecuencia → puede quitarle marcos. Mantiene la paginación dentro de límites aceptables ajustando dinámicamente la asignación."
+  },
+  {
+    "id": "PAG_T01",
+    "tema": "Paginación",
+    "nivel": 2,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es la paginación y cómo funciona la traducción de dirección virtual a física?",
+    "clave": [
+      "páginas",
+      "marcos",
+      "tabla de páginas",
+      "MMU",
+      "dirección virtual",
+      "física",
+      "traducción"
+    ],
+    "explicacion": "La paginación divide el espacio de direcciones en páginas de tamaño fijo y la memoria física en marcos del mismo tamaño. La MMU usa la tabla de páginas para traducir: número de página virtual → número de marco físico. La dirección física = marco × tamaño_página + desplazamiento."
+  },
+  {
+    "id": "PAG_T02",
+    "tema": "Paginación",
+    "nivel": 3,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es la copia en escritura (Copy-On-Write) y cómo optimiza fork()?",
+    "clave": [
+      "compartir páginas",
+      "solo lectura",
+      "modificar",
+      "copia privada",
+      "fork",
+      "optimizar",
+      "memoria"
+    ],
+    "explicacion": "COW: después de fork(), padre e hijo comparten las mismas páginas físicas marcadas como solo lectura. Cuando cualquiera intenta modificar una página, se crea una copia privada. Esto hace fork() muy eficiente — solo se copian las páginas realmente modificadas."
+  },
+  {
+    "id": "PAG_T03",
+    "tema": "Paginación",
+    "nivel": 2,
+    "tipo": "mc",
+    "enunciado": "¿Qué es la fragmentación interna en paginación?",
+    "opciones": {
+      "A": "Espacio libre entre marcos de página",
+      "B": "Espacio desperdiciado dentro de la última página asignada cuando no se llena completamente",
+      "C": "Diferencia entre páginas virtuales y físicas",
+      "D": "Overhead de la tabla de páginas"
+    },
+    "correcta": "B",
+    "explicacion": "Fragmentación interna en paginación: la última página de un proceso raramente se llena completamente. En promedio se desperdicia medio tamaño de página por segmento. Páginas grandes → más fragmentación interna; páginas pequeñas → tablas de páginas más grandes."
+  },
+  {
+    "id": "PAG_T04",
+    "tema": "Paginación",
+    "nivel": 3,
+    "tipo": "abierta",
+    "enunciado": "¿Qué es una biblioteca compartida y qué es el código independiente de posición (PIC)? ¿Cómo se relacionan?",
+    "clave": [
+      "código relativo",
+      "dirección virtual",
+      "compartida",
+      "múltiples procesos",
+      "memoria",
+      "actualizar",
+      "enlace dinámico"
+    ],
+    "explicacion": "Biblioteca compartida: funciones enlazadas dinámicamente, compartidas por múltiples procesos en memoria. PIC (Position Independent Code): usa direcciones relativas, no absolutas, permitiendo que la biblioteca funcione en cualquier dirección virtual. Sin PIC, no podría cargarse en diferentes posiciones para diferentes procesos."
+  }
+]
